@@ -101,15 +101,14 @@ const Todo = () => {
     }
 
     const updateTodoItemAsMakeDone = (id) => {
-        // console.log(id);
-        // dispatch(
-        //     updateTodoMarkAsDone(
-        //         {
-        //             listId: State.todos.id,
-        //             todoId: id
-        //         }
-        //     )
-        // )
+        dispatch(
+            updateTodoMarkAsDone(
+                {
+                    listId: State.todos.id,
+                    todoId: id
+                }
+            )
+        )
     }
 
 

@@ -23,6 +23,16 @@ const Table = ({ todos, editTodoEvent, deleteTodoEvent, updateTodoItemAsMakeDone
         )
     }
 
+    const updateTodoItemAsMakeDoneBodyTemplate = (data) => {
+        return (
+            <Button onClick={() => updateTodoItemAsMakeDone(data.id)} >
+                {
+                    data.marked ? <i className="pi pi-check"></i> : <i className="pi pi-times"></i>
+                }
+            </Button>
+        )
+    }
+
 
     return (
         <DataTable
@@ -33,7 +43,7 @@ const Table = ({ todos, editTodoEvent, deleteTodoEvent, updateTodoItemAsMakeDone
         >
             <Column field="title" header="Title"></Column>
             <Column field="dueDate" header="Date"></Column>
-            <Column field="" header="MarkAsDone" body={(data) => updateTodoItemAsMakeDone(data.id)} ></Column>
+            <Column field="" header="MarkAsDone" body={updateTodoItemAsMakeDoneBodyTemplate} ></Column>
 
             <Column field="" header="Edit" body={editTodoBodyTemplate}></Column>
             <Column field="" header="Delete" body={deleteTodoBodyTemplate} ></Column>
