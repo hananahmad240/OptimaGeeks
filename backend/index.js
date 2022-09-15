@@ -18,7 +18,11 @@ app.get("*",(req,res)=>{
     res.send("NOT FOUND").status(404)
 })
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("../frontend/build"))
+}
 
-app.listen(process.env.PORT, () => {
+
+app.listen(process.env.PORT || 4000, () => {
     console.log(`Server is running on http://localhost:${process.env.PORT}`);
 })
